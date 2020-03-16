@@ -34,18 +34,12 @@ public class TicTacToeUIController implements TicTacToeController, ActionListene
    */
   @Override
   public void actionPerformed(ActionEvent e) {
-    JButton echoButton, exitButton;
-    
-//    switch (e.getActionCommand()) {
-//      case "Echo Button":
-//        echoButton = new JButton("Echo");
-//        echoButton.setActionCommand("Echo Button");
-//        //this.add(echoButton);
-//      case "Exit Button":
-//        exitButton = new JButton("Exit");
-//        exitButton.setActionCommand("Exit Button");
-//        //this.add(exitButton);
-//    }
+    JButton resetButton;
+    if (e.getActionCommand().equals("Reset Button")) {
+      resetButton = new JButton("Reset");
+      resetButton.setActionCommand("Reset Button");
+      //this.add(resetButton);
+    }
   }
   
   /**
@@ -79,5 +73,12 @@ public class TicTacToeUIController implements TicTacToeController, ActionListene
     } catch (IllegalArgumentException | IllegalStateException e) {
       // do nothing since move is illegal
     }
+  }
+  
+  /**
+   * Handles the game being reset so it could be played again.
+   */
+  public void handleReset() {
+    //model.reset();
   }
 }

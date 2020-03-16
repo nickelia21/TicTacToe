@@ -15,7 +15,7 @@ public class TicTacToePanel extends JPanel {
   
   // Constants
   private int numCells = TicTacToeModel.numCells;
-  public static final int FONT_SIZE = 40;
+  public static final int FONT_SIZE = 30;
   public static final String FONT_FACE = "Helvetica";
   //public static final Font FONT = new Font(new HashMap<String, Integer>(FONT_FACE, FONT_SIZE));
   
@@ -23,6 +23,9 @@ public class TicTacToePanel extends JPanel {
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D) g;
+    
+    // Set the font
+    g2.setFont(new Font(FONT_FACE, Font.PLAIN, FONT_SIZE));
     
     // Model attributes
     Player turn = model.getTurn();
@@ -45,14 +48,18 @@ public class TicTacToePanel extends JPanel {
         int xPos = (w * col / numCells) - (w / (numCells * 2));
         int yPos = ((h - sh) * row / numCells) - ((h - sh) / (numCells * 2));
         
+        // I left in the pictures because I thought they were funny
+        // - Still left implementation for X and O
         if (model.getMarkAt(row - 1, col - 1) != null) {
           if (model.getMarkAt(row - 1, col - 1) == Player.X) {
             //g2.drawString("X", xPos, yPos);
-            g2.drawImage(new ImageIcon("Jellyfish.jpg").getImage(), xPos - 50, yPos - 50, 100,
+            g2.drawImage(new ImageIcon("resources/Jellyfish.jpg").getImage(), xPos - 50,
+                yPos - 50, 100,
                 100, this);
           } else {
             //g2.drawString("O", xPos, yPos);
-            g2.drawImage(new ImageIcon("HsifylleJ.jpg").getImage(), xPos - 50, yPos - 50, 100,
+            g2.drawImage(new ImageIcon("resources/HsifylleJ.jpg").getImage(), xPos - 50,
+                yPos - 50, 100,
                 100, this);
           }
         }
@@ -60,9 +67,9 @@ public class TicTacToePanel extends JPanel {
     }
     // Check if winner, then print
     if (winner != null) {
-      g2.drawString("Player " + winner.toString() + " has won!", w / 2, h - (sh / 2));
-    } else if (model.isGameOver() && winner == null) {
-      g2.drawString("Tie game.", w / 2, h - (sh / 2));
+      g2.drawString("Player " + winner.toString() + " has won!", w / 3, h - (sh / 2));
+    } else if (model.isGameOver()) {
+      g2.drawString("Tie game.", w / 3, h - (sh / 2));
     } else {
       // turn statuses
       g2.drawString("TURN: " + turn.toString(), w / 6, h - (sh / 2));

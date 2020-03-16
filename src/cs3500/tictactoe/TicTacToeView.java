@@ -11,7 +11,6 @@ import javax.swing.*;
  * ...............
  */
 public class TicTacToeView extends JFrame implements TTTView {
-  private JLabel image;
   private JButton resetButton;
   private JPanel panel;
   
@@ -31,16 +30,16 @@ public class TicTacToeView extends JFrame implements TTTView {
     
     setSize(WIDTH, HEIGHT);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setResizable(true);
+    this.setResizable(false);
     this.setMinimumSize(new Dimension(WIDTH, HEIGHT));
-    
-    // resetButton
-//    resetButton = new JButton("RESET");
-//    resetButton.setActionCommand("Reset Button");
-//    panel.add(resetButton);
     
     panel = new TicTacToePanel(m);
     this.add(panel);
+    
+    // resetButton
+    resetButton = new JButton("RESET");
+    resetButton.setActionCommand("Reset Button");
+    panel.add(resetButton);
     
     makeVisible();
   }
