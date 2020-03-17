@@ -35,11 +35,6 @@ public class TicTacToeView extends JFrame implements TTTView {
   
     panel = new TicTacToePanel(m);
     this.add(panel);
-
-//    // resetButton - Never got this to work
-//    resetButton = new JButton("RESET");
-//    resetButton.setActionCommand("Reset Button");
-//    panel.add(resetButton);
   
     makeVisible();
   }

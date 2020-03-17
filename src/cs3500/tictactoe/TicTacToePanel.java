@@ -62,12 +62,8 @@ public class TicTacToePanel extends JPanel {
         if (model.getMarkAt(row - 1, col - 1) != null) {
           if (model.getMarkAt(row - 1, col - 1) == Player.X) {
             g2.drawString("X", xPos - (FONT_SIZE / 2), yPos + (FONT_SIZE / 2));
-//            g2.drawImage(new ImageIcon("resources/Jellyfish.jpg").getImage(), xPos - 50,
-//                yPos - 50, 100, 100, this);
           } else {
             g2.drawString("O", xPos - (FONT_SIZE / 2), yPos + (FONT_SIZE / 2));
-//            g2.drawImage(new ImageIcon("resources/HsifylleJ.jpg").getImage(), xPos - 50,
-//                yPos - 50, 100, 100, this);
           }
         }
       }
