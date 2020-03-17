@@ -4,11 +4,19 @@ import java.io.IOException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+/**
+ * Public class representing the console version of the TicTacToe controller.
+ */
 public class TicTacToeConsoleController implements TicTacToeController {
-  
   private final Appendable out;
   private final Scanner scan;
   
+  /**
+   * Primary constructor that creates a new instance of a TicTacToeConsoleController.
+   *
+   * @param in  Readable user input
+   * @param out Appendable system output
+   */
   public TicTacToeConsoleController(Readable in, Appendable out) {
     if (in == null || out == null) {
       throw new IllegalArgumentException("Readable and Appendable can't be null");
@@ -40,7 +48,7 @@ public class TicTacToeConsoleController implements TicTacToeController {
               out.append(m.toString()).append("\n");
               out.append("Game is over! ");
               if (m.getWinner() != null) {
-                out.append(m.getWinner().toString() + " wins.\n");
+                out.append(m.getWinner().toString()).append(" wins.\n");
               } else {
                 out.append("Tie game.\n");
               }
@@ -50,14 +58,14 @@ public class TicTacToeConsoleController implements TicTacToeController {
             mvRow = mvCol = null;
           }
         } catch (NumberFormatException nfe) {
-          out.append("Not a valid number: " + tok).append("\n");
+          out.append("Not a valid number: ").append(tok).append("\n");
         } catch (IllegalArgumentException iae) {
-          out.append("Not a valid move: " + mvRow + ", " + mvCol).append("\n");
+          out.append("Not a valid move: " + mvRow + ", " + mvCol + "\n");
           mvRow = mvCol = null;
         }
       }
       if (!m.isGameOver() && tok.equalsIgnoreCase("q")) {
-        out.append("Game quit! Ending game state:\n" + m.toString() + "\n");
+        out.append("Game quit! Ending game state:\n").append(m.toString()).append("\n");
       } else if (!m.isGameOver()) {
         throw new IllegalStateException("Ran out of inputs");
       }
@@ -72,7 +80,7 @@ public class TicTacToeConsoleController implements TicTacToeController {
   
   private void appendStateAndPrompt(TicTacToe m) throws IOException {
     out.append(m.toString()).append("\n");
-    out.append("Enter a move for " + m.getTurn().toString()).append(":\n");
+    out.append("Enter a move for ").append(m.getTurn().toString()).append(":\n");
   }
   
   @Override

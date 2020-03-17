@@ -1,17 +1,17 @@
 package cs3500.tictactoe;
 
-import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.Dimension;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
- * ...............
+ * Public class representing the View for the TicTacToe game.
  */
 public class TicTacToeView extends JFrame implements TTTView {
-  private JButton resetButton;
   private JPanel panel;
   
   // Public Constants
@@ -21,26 +21,26 @@ public class TicTacToeView extends JFrame implements TTTView {
   public static int CELL_DIM = WIDTH / 3;
   
   /**
-   * ...............
+   * Primary constructor that creates a new instance of a TicTacToeView.
    *
    * @param m The TicTacToeModelReadOnly reference passed in that is visualized by this view.
    */
   public TicTacToeView(String windowTitle, ReadonlyTTTModel m) {
     super(windowTitle);
-    
+  
     setSize(WIDTH, HEIGHT);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setResizable(false);
     this.setMinimumSize(new Dimension(WIDTH, HEIGHT));
-    
+  
     panel = new TicTacToePanel(m);
     this.add(panel);
-    
-    // resetButton
-    resetButton = new JButton("RESET");
-    resetButton.setActionCommand("Reset Button");
-    panel.add(resetButton);
-    
+
+//    // resetButton - Never got this to work
+//    resetButton = new JButton("RESET");
+//    resetButton.setActionCommand("Reset Button");
+//    panel.add(resetButton);
+  
     makeVisible();
   }
   

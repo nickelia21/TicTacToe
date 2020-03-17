@@ -3,7 +3,7 @@ package cs3500.tictactoe;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JButton;
 
 /**
  * Public class representing a visual controller of the TicTacToe game.

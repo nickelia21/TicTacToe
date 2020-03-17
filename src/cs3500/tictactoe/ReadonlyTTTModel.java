@@ -1,5 +1,8 @@
 package cs3500.tictactoe;
 
+/**
+ * Public interface that represents a read-only version of the TicTacToe Interface.
+ */
 public interface ReadonlyTTTModel {
   
   /**

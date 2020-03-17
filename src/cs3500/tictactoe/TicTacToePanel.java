@@ -1,12 +1,24 @@
 package cs3500.tictactoe;
 
-import java.awt.*;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Graphics;
+import java.awt.Font;
 
+import javax.swing.JPanel;
+
+/**
+ * Public class that does the drawing of the game board and elements.
+ */
 public class TicTacToePanel extends JPanel {
   private ReadonlyTTTModel model;
   
+  /**
+   * Primary constructor that creates a new instance of a TicTacToeØPanel.
+   *
+   * @param model the read-only version of the given model.
+   */
   public TicTacToePanel(ReadonlyTTTModel model) {
     super();
     this.setBackground(Color.WHITE);
@@ -14,10 +26,9 @@ public class TicTacToePanel extends JPanel {
   }
   
   // Constants
-  private int numCells = TicTacToeModel.numCells;
+  private int numCells = TicTacToeModel.NUM_CELLS;
   public static final int FONT_SIZE = 30;
   public static final String FONT_FACE = "Helvetica";
-  //public static final Font FONT = new Font(new HashMap<String, Integer>(FONT_FACE, FONT_SIZE));
   
   @Override
   protected void paintComponent(Graphics g) {
@@ -48,19 +59,15 @@ public class TicTacToePanel extends JPanel {
         int xPos = (w * col / numCells) - (w / (numCells * 2));
         int yPos = ((h - sh) * row / numCells) - ((h - sh) / (numCells * 2));
         
-        // I left in the pictures because I thought they were funny
-        // - Still left implementation for X and O
         if (model.getMarkAt(row - 1, col - 1) != null) {
           if (model.getMarkAt(row - 1, col - 1) == Player.X) {
-            //g2.drawString("X", xPos, yPos);
-            g2.drawImage(new ImageIcon("resources/Jellyfish.jpg").getImage(), xPos - 50,
-                yPos - 50, 100,
-                100, this);
+            g2.drawString("X", xPos, yPos);
+//            g2.drawImage(new ImageIcon("resources/Jellyfish.jpg").getImage(), xPos - 50,
+//                yPos - 50, 100, 100, this);
           } else {
-            //g2.drawString("O", xPos, yPos);
-            g2.drawImage(new ImageIcon("resources/HsifylleJ.jpg").getImage(), xPos - 50,
-                yPos - 50, 100,
-                100, this);
+            g2.drawString("O", xPos, yPos);
+//            g2.drawImage(new ImageIcon("resources/HsifylleJ.jpg").getImage(), xPos - 50,
+//                yPos - 50, 100, 100, this);
           }
         }
       }

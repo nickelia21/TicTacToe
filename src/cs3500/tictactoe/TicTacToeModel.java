@@ -13,10 +13,13 @@ public class TicTacToeModel implements TicTacToe {
   private Player turn;
   
   // Constant number of cells
-  public static int numCells = 3;
+  public static int NUM_CELLS = 3;
   
+  /**
+   * Primary constructor that creates a new instance of the TicTacToeModel.
+   */
   public TicTacToeModel() {
-    board = new Player[numCells][numCells];
+    board = new Player[NUM_CELLS][NUM_CELLS];
     turn = Player.X;
   }
   

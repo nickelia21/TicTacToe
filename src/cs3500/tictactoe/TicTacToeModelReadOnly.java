@@ -11,8 +11,11 @@ public class TicTacToeModelReadOnly implements ReadonlyTTTModel {
   private final Player[][] board;
   private Player turn;
   
+  /**
+   * Primary constructor that creates a new instance of the TicTacToeModelReadOnly.
+   */
   public TicTacToeModelReadOnly() {
-    this.board = new Player[TicTacToeModel.numCells][TicTacToeModel.numCells];
+    this.board = new Player[TicTacToeModel.NUM_CELLS][TicTacToeModel.NUM_CELLS];
     this.turn = Player.X;
   }
   
